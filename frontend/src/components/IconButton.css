@@ -1,4 +1,15 @@
 .icon-button-container {
-    display: inline-block;
-    margin: 0 10px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    width: 30px;
+    border-radius: 100px;
+    background-color: #00000022;
+    color: white;
+
+}
+
+.icon-button-container:hover {
+    background-color: #00000044;
 }

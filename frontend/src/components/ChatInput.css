@@ -14,9 +14,13 @@
 
 .chat-form-input {
     /* 48px for .chat-form-submit width */
-    width: calc(100% - 48px);
+    /* 28px for .chat-form-input padding */
+    width: calc(calc(100% - 48px) - 28px);
+    font-size: 22px;
+    padding: 0 14px;
 }
 
 .chat-form-submit {
     width: 48px;
+    vertical-align: top
 }

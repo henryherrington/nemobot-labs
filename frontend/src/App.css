@@ -6,9 +6,8 @@ body {
 
 .app-body {
     position: relative;
-    padding: 0 100px;
-    /* 38px for header */
-    height: calc(100vh - 38px);
+    /* 50px for header */
+    height: calc(100vh - 50px);
 }
 
 h1 {
