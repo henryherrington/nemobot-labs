@@ -1,25 +1,35 @@
 import './IconButton.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCommentAlt } from '@fortawesome/free-solid-svg-icons'
+import { faCommentAlt, faGlobe, faQuestion } from '@fortawesome/free-solid-svg-icons'
 import { faQuestionCircle } from '@fortawesome/free-solid-svg-icons'
-
+import { faCode } from '@fortawesome/free-solid-svg-icons'
+import { faTimes } from '@fortawesome/free-solid-svg-icons'
+import {faFacebookF, faGithub, faLinkedin} from "@fortawesome/free-brands-svg-icons";
 
 function IconButton(props) {
+    const smallIcons = ["facebook", "linkedin", "github", "globe"]
+    let size = "sm"
+    if (smallIcons.includes(props.icon)) size = "lg"
+
+    const iconCodes = {
+        "globe": faGlobe,
+        "facebook": faFacebookF,
+        "linkedin": faLinkedin,
+        "github": faGithub,
+        "code": faCode,
+        "close": faTimes,
+        "question": faQuestionCircle,
+        "comment": faCommentAlt
+    }
     let displayIcon
-    switch (props.icon) {
-        case 'question':
-            displayIcon = faQuestionCircle
-            break;
-        case 'main':
-            displayIcon = faCommentAlt
-            break;
-        default:
-            displayIcon = faCommentAlt
-      }
+    if (props.icon in iconCodes) {
+        displayIcon = iconCodes[props.icon]
+    }
+    else displayIcon = faQuestionCircle
 
     return (
         <div className="icon-button-container" onClick={props.function}>
-            <FontAwesomeIcon icon={displayIcon} />
+            <FontAwesomeIcon icon={displayIcon} size={size}></FontAwesomeIcon>
         </div>
     )
 }

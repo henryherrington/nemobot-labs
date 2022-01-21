@@ -5,6 +5,7 @@
     justify-content: center;
     align-items: stretch;
     /* background-color: red; */
+    margin: 0 100px;
 }
 
 
@@ -17,16 +18,25 @@
     text-align: center;
 }
 
+.about-container {
+    margin-top: 20px;
+}
+
 .about-blurb {
     background-color: #00000044;
     border: 1px solid lightblue;
     color: rgb(228, 228, 228);
     padding: 20px;
+    max-width: 800px;
 }
 
 .footer-blurb {
     display: block;
     color: white;
-    margin-bottom: 30px;
     font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.footer-icons > * {
+    margin: 10px 12px;
 }

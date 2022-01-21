@@ -1,0 +1,11 @@
+.code-box {
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.564);
+    position: relative;
+}
+
+.code-box-close-button {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+}
