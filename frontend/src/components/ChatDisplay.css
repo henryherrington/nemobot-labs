@@ -1,0 +1,10 @@
+.chat-display {
+    position: relative;
+    /* 48px for padding */
+    height: calc(100% - 48px);
+    overflow: scroll;
+
+    padding: 24px;
+
+    background-color: #00000085;
+}

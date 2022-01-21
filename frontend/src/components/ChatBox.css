@@ -1,0 +1,6 @@
+.chat-box {
+    position: relative;
+    /* 48px for ChatInput height */
+    height: calc(100% - 48px);
+    width: 100%;
+}

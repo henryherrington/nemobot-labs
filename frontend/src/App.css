@@ -1,0 +1,16 @@
+body {
+    background: url("https://nemo.algebragame.app/img/bg-pattern.png"), linear-gradient(to left, #2165ae, #0091C9);
+    background-attachment:fixed;
+    font-family: "roboto";
+}
+
+.app-body {
+    position: relative;
+    padding: 0 100px;
+    /* 38px for header */
+    height: calc(100vh - 38px);
+}
+
+h1 {
+    color: white;
+}

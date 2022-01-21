@@ -1,0 +1,9 @@
+.header {
+    color: white;
+    background-color: #00000044;
+    padding: 10px 100px;
+}
+
+.icons-container {
+    float: right;
+}

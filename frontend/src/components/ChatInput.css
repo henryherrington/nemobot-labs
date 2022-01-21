@@ -1,0 +1,22 @@
+.chat-input {
+    height: 48px;
+    position: relative;
+    width: 100%;
+    /* background-color: blue; */
+}
+
+.chat-form-input, .chat-form-submit {
+    height: 48px;
+    border: none;
+    padding: 0;
+    /* background-color: red; */
+}
+
+.chat-form-input {
+    /* 48px for .chat-form-submit width */
+    width: calc(100% - 48px);
+}
+
+.chat-form-submit {
+    width: 48px;
+}
