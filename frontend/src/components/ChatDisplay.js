@@ -28,17 +28,28 @@ function ChatDisplay(props) {
     }
 
     function displayButtons(title, buttons) {
-
         for (var button in buttons) {
-            if (typeof buttons[button].payload != "function") {
-                if (buttons[button].payload == "restart") {
-                    buttons[button].payload = runGameStart;
+            if (typeof buttons[button] == "string") {
+                let currString = buttons[button]
+                buttons[button] = {
+                    "title": currString,
+                    "payload": () => displayMessage(currString, "user")
+                }
+            }
+            else {
+                let currTitle = buttons[button].title
+                let currPayload = buttons[button].payload
+                if (currPayload == "restart" || currPayload == "gamestart") {
+                    buttons[button].payload = (() => {
+                        displayMessage(currTitle, "user")
+                        runGameStart()
+                    })
                 }
                 else {
-                    let temp = buttons[button].payload
-                    buttons[button].payload = (() => runGameState(temp))
-                    // buttons[button].payload = (() => alert("hi"))
-
+                    buttons[button].payload = (() => {
+                        displayMessage(currTitle, "user")
+                        runGameState(currPayload)
+                    })
                 }
             }
         }
@@ -78,7 +89,7 @@ function ChatDisplay(props) {
             let title = "Select the program you would like to run:"
             let buttons = [{
                 "title": props.program.title,
-                "payload": runGameStart
+                "payload": "gamestart"
             }]
             displayButtons(title, buttons)
         })
