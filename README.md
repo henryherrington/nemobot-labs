@@ -14,6 +14,7 @@ Nemobot Labs is a platform that allows users to learn JavaScript by creating the
 ## Set up
 1) Clone or download the repository
 2) Install dependencies with npm install
-3) Set up Google Cloud credentials in an environment variable to support Google Dialogflow. This step requires you have access to a working Dialogflow backend for Nemobot. For access, please contact the owner of this repo or Nautilus Software Technologies. Follow the instructions here for more details on setting up GC credentials.
-4) Run the server `with node server.js`
-5) Run the React frontend with `npm start`
+3) Import the Nemobot agent into your Dialogflow Essentials console using the provided nemo-bot.zip file.
+4) Set up Google Cloud credentials in an environment variable to support Google Dialogflow and access to your Nemobot agent. Follow the instructions [here](https://cloud.google.com/docs/authentication/getting-started) for more details on setting up GC credentials.
+5) Run the Express server with `npm start` in the backend folder
+6) Run the React frontend with `npm start` in the frontend folder
