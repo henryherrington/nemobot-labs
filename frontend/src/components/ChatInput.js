@@ -8,7 +8,6 @@ function ChatInput(props) {
     function submitChatInput(e) {
         if (chatInput != '') {
             props.socket.emit('client message', chatInput)
-            console.log('sent')
             setChatInput('')
         }
         e.preventDefault()
