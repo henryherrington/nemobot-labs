@@ -8,7 +8,6 @@
 }
 
 .code-box-chunk {
-    margin: 1px;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -20,6 +19,18 @@
 
 .code-box-close-button {
     position: absolute;
-    top: 12px;
-    right: 12px;
+    top: 4px;
+    right: 4px;
+}
+
+
+.code-box-header {
+    background-color: white;
+    text-align: center;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-style: italic;
+    font-weight: bold;
 }

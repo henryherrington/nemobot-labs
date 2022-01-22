@@ -4,7 +4,6 @@ import './Main.css'
 import ChatBox from './ChatBox'
 import CodeBox from './CodeBox'
 import IconButton from './IconButton'
-
 import bubblesort from '../programs/bubblesort'
 
 function Main(props) {

@@ -40,3 +40,7 @@
 .footer-icons > * {
     margin: 10px 12px;
 }
+
+a {
+    color: white;
+}

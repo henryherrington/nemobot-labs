@@ -15,11 +15,12 @@ function CodeBox(props) {
     return (
         <div className="code-box">
             <div className="code-box-header">
-
+                {props.program.title + ".js"}
             </div>
             <div className="code-box-close-button">
                 <IconButton
                     icon="close"
+                    size="small"
                     function={props.closeCodeBox}
                 ></IconButton>
             </div>
