@@ -5,16 +5,17 @@
     height: 30px;
     width: 30px;
     border-radius: 100px;
-    background-color: #00000022;
+    background-color: #00000044;
     color: white;
     cursor: pointer;
 }
 
 .icon-button-container:hover {
-    background-color: #00000044;
+    background-color: #00000088;
 }
 
 .small {
     height: 22px;
     width: 22px;
+    
 }

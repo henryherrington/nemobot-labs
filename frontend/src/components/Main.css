@@ -5,14 +5,9 @@
     justify-content: center;
 }
 
-.code-box-container {
+.code-box-container, .chat-box-container {
     width: 100%;
-    max-width: 600px;
-}
-
-.chat-box-container {
-    width: 100%;
-    max-width: 600px;
+    max-width: 800px;
 }
 
 .code-box-toggle-button {
