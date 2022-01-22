@@ -8,3 +8,9 @@
 
     background-color: #00000085;
 }
+
+.button-container {
+    margin: 24px 0;
+    max-width: 100%;
+    text-align: center;
+}

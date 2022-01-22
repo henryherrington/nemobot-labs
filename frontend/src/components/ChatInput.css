@@ -16,7 +16,7 @@
     /* 48px for .chat-form-submit width */
     /* 28px for .chat-form-input padding */
     width: calc(calc(100% - 48px) - 28px);
-    font-size: 22px;
+    font-size: 18px;
     padding: 0 14px;
 }
 

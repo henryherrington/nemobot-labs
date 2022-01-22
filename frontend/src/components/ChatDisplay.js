@@ -1,38 +1,122 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
+import ChatButton from './ChatButton'
 import './ChatDisplay.css'
 import MessageBubble from './MessageBubble'
 
 function ChatDisplay(props) {
 
     const [messages, setMessages] = useState([])
+    const chatDisplayRef = useRef()
+
+    function runGameStart() {
+        let start = eval(props.program.other + ";" + props.program.start)
+        start(say, sendButton)
+    }
+
+    function runGameState(innerpayload) {
+        let state = eval(props.program.other + ";" + props.program.state)
+        state(innerpayload, say, sendButton)
+    }
+
+    function displayMessage(message, sender) {
+        let messageObj = {
+            "type": "message",
+            "body": message,
+            "sender": sender
+        }
+        setMessages((messages) => [...messages, messageObj])
+    }
+
+    function displayButtons(title, buttons) {
+
+        for (var button in buttons) {
+            if (typeof buttons[button].payload != "function") {
+                if (buttons[button].payload == "restart") {
+                    buttons[button].payload = runGameStart;
+                }
+                else {
+                    let temp = buttons[button].payload
+                    buttons[button].payload = (() => runGameState(temp))
+                    // buttons[button].payload = (() => alert("hi"))
+
+                }
+            }
+        }
+
+        displayMessage(title, "server")
+        let buttonsObj = {
+            "type": "buttons",
+            "body": buttons,
+            "sender": "server"
+        }
+        setMessages((messages) => [...messages, buttonsObj])
+    }
+
+    // say message from server
+    async function say(message) {
+        if (Array.isArray(message)) {
+            for (let i = 0; i < message.length; i++) {
+                say(message)
+            }
+        }
+        else {
+            displayMessage(message, "server")
+        }
+    }
+
+    async function sendButton(title, buttons) {
+        displayButtons(title, buttons)
+    }
 
     useEffect(() => {
-        console.log("ran")
         if (!props.socket) return
         props.socket.on('server message', (sender, message) => {
-            let type = "user"
-            if (sender == "server") type = "other"
-
-            let messageObj = {
-                "message": message,
-                "type": type
-            }
-            setMessages((messages) => [...messages, messageObj])
+            displayMessage(message, sender)
         })
-    }, [props.socket])
+
+        props.socket.on('show programs', () => {
+            let title = "Select the program you would like to run:"
+            let buttons = [{
+                "title": props.program.title,
+                "payload": runGameStart
+            }]
+            displayButtons(title, buttons)
+        })
+
+        return () => {
+            props.socket.removeAllListeners("server message");
+            props.socket.removeAllListeners("show programs");
+        }
+    }, [props.socket, props.program])
+
+    // automatically scroll chat on new messages
+    useEffect(() => {
+        chatDisplayRef.current.scrollIntoView({behavior: "smooth"})
+    })
 
     let messageKeyGen = 0;
 
     return (
         <div className="chat-display">
             {messages.map((message) => (
+                (message.type == "message") ?
                 <MessageBubble
-                    type={message.type}
-                    message={message.message}
+                    type={(message.sender == "server") ? "other" : "user"}
+                    message={message.body}
                     key={messageKeyGen++}
                 >
                 </MessageBubble>
+                : <div className="button-container" key={messageKeyGen++}>
+                    {message.body.map((button) => (
+                        <ChatButton
+                            title={button.title}
+                            payload={button.payload}
+                            key={messageKeyGen++}
+                        ></ChatButton>
+                    ))}
+                </div>
             ))}
+            <div ref={chatDisplayRef}></div>
         </div>
     )
 }

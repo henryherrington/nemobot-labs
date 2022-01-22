@@ -5,9 +5,12 @@ import ChatBox from './ChatBox'
 import CodeBox from './CodeBox'
 import IconButton from './IconButton'
 
+import bubblesort from '../programs/bubblesort'
+
 function Main(props) {
 
     const [showCodeBox, setShowCodeBox] = useState(false)
+    const [program, setProgram] = useState(bubblesort)
 
     return (
         <div className="main">
@@ -15,12 +18,17 @@ function Main(props) {
                 <div className="code-box-container">
                     <CodeBox
                         closeCodeBox = {() => setShowCodeBox(false)}
+                        program={program}
+                        setProgram={setProgram}
                     ></CodeBox>
                 </div>
             :   <></>
             }
             <div className="chat-box-container">
-                <ChatBox socket={props.socket}></ChatBox>
+                <ChatBox
+                    socket={props.socket}
+                    program={program}
+                ></ChatBox>
             </div>
             <div className="code-box-toggle-button">
                 {showCodeBox
@@ -36,3 +44,14 @@ function Main(props) {
 }
 
 export default Main
+
+/*
+------ programs ------
+[
+{
+    'title': "---",
+    'start': "---",
+    'state': "---"
+}
+]
+*/

@@ -14,7 +14,7 @@ const ENDPOINT = "http://localhost:4000";
 
 function App() {
 
-    const [mySocket, setMySocket] = useState();
+    const [mySocket, setMySocket] = useState()
     const [screenShown, setScreenShown] = useState("main")
 
     useEffect(() => {

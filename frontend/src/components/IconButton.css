@@ -7,7 +7,7 @@
     border-radius: 100px;
     background-color: #00000022;
     color: white;
-
+    cursor: pointer;
 }
 
 .icon-button-container:hover {
