@@ -23,7 +23,6 @@ function CodeBoxChunk(props) {
                 }}
                 theme={oneDark}
                 className="code-mirror"
-                lineWrapping="true"
             />
         </div>
     )
