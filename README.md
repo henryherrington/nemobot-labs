@@ -1,8 +1,11 @@
-<h1 align="center">Nemobot React</h1>
+<h1 align="center">Nemobot Labs</h1>
 <p align="center">
   <img src="https://raw.githubusercontent.com/henryherrington/nemobot-labs/main/readme-images/nemobot-labs-chat.png" height="75%" width="75%" margin="auto">
+  The main Nemobot Labs page, with an updated interface to chat with Nemobot
   <img src="https://raw.githubusercontent.com/henryherrington/nemobot-labs/main/readme-images/nemobot-labs-editor.png" height="75%" width="75%" margin="auto">
+  A new series of code editors to customize Nemobot program code. Each pane corresponds to a different section of a standard Nemobot program.
   <img src="https://raw.githubusercontent.com/henryherrington/nemobot-labs/main/readme-images/nemobot-labs-about.png" height="75%" width="75%" margin="auto">
+  The new Nemobot Labs about page.
 </p>
 
 ## About
