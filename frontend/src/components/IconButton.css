@@ -13,3 +13,8 @@
 .icon-button-container:hover {
     background-color: #00000044;
 }
+
+.small {
+    height: 22px;
+    width: 22px;
+}

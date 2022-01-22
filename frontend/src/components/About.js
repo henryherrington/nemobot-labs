@@ -7,13 +7,14 @@ function About() {
             <div className="about-container">
                 <h1>About</h1>
                 <div className="about-blurb">
-                    Nemobot is an online chatbot that can help you develop your computer science and artificial intelligence skills by playing games.
-                    Just ask Nemobot to see which games are offered, or log in to program your own games.
+                    Nemobot Labs is a platform that allows users to learn JavaScript by creating their own chatbot programs.
+                    Just ask Nemobot to see which programs are offered, and open the code tab on the left to edit those programs.
                     Nemobot uses Natural Language Processing to understand many different english phrases.
                     Nemobot is also available on Facebook messenger.
+                    For more information on how to use Nemobot Labs, visit our <a href="https://github.com/henryherrington/nemobot-react" target="_blank">documentation page</a>.
                     <br></br><br></br>
                     Nemobot was created in 2017 by Nautilus Software Technologies Limited, and is being updated continuously through 2022.
-                    Visit our website at https://nautilustech.ai/, or email us at nautilus@nautilustech.ai.
+                    Visit our <a href="https://nautilustech.ai/" target="_blank">website</a>, or email us at nautilus@nautilustech.ai.
                 </div>
             </div>
             <div className="footer-blurb">
@@ -33,6 +34,10 @@ function About() {
                     <IconButton
                         icon="github"
                         function={() => window.open("https://github.com/henryherrington/nemobot-react", "_blank")}
+                    ></IconButton>
+                    <IconButton
+                        icon="robot"
+                        function={() => window.open("http://34.92.103.169/", "_blank")}
                     ></IconButton>
                 </div>
                 &#169; 2022 Nautilus Software Technologies Limited<br></br>

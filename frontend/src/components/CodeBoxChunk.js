@@ -4,7 +4,9 @@ function CodeBoxChunk(props) {
 
     return (
         <div className="code-box-chunk">
-            {props.title}
+            <div className="chunk-title">
+                {props.title}
+            </div>
             <textarea
                 className="code-text-area"
                 value={props.code}
