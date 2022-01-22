@@ -8,7 +8,7 @@ import bubblesort from '../programs/bubblesort'
 
 function Main(props) {
 
-    const [showCodeBox, setShowCodeBox] = useState(true)
+    const [showCodeBox, setShowCodeBox] = useState(false)
     const [program, setProgram] = useState(bubblesort)
 
     return (
