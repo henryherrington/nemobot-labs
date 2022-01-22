@@ -11,7 +11,7 @@
 ## About
 Nemobot Labs is a platform that allows users to learn JavaScript by creating their own chatbot programs to be executed by Nautilus Software Technologies' Nemobot chatbot. I worked on this project part time during the summer of 2021, expanding on my work with Nemobot the previous summer. I built this version of Nemobot using React to drastically improve scalability and maintainability. Nemobot Labs also includes on online code editor in which students can write programs to then be immediately run on Nemobot. All of this experimental student code resides exclusivley on the client side so that it cannot interfere with server operations.
 
-## Set up
+## Local Set up
 1) Clone or download the repository
 2) Install dependencies with npm install
 3) Import the Nemobot agent into your Dialogflow Essentials console using the provided nemo-bot.zip file.
