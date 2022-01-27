@@ -1,17 +1,16 @@
 const bubblesort = {
     "title": "bubblesort",
-    "start": `(say, sendButton) => {
+    "code": `function start(say, sendButton) {
 	sendButton(
         'You just need to input 3 numbers and I will sort them !',
         [{title: 'Sounds good 🙂', payload: '1'}]
     );
 };
-    `,
-    "state": `(payload, say, sendButton) => {
 
+function state(payload, say, sendButton) {
     // Declare variables
     var num1, num2, num3, input_array, output_array;
-    
+
     // 'Split' the payload, remove the '~' character, and put the 3 variables
     // into the array : 'input_array'
     input_array = payload.split('~');
@@ -21,7 +20,7 @@ const bubblesort = {
     num2 = parseInt(input_array[1]);
     // Get the third number from input_array and store it to variable 'num3'
     num3 = parseInt(input_array[2]);
-    
+
     // parseInt : transforms String to Integer
     const NUM_LIMIT = 21
 
@@ -36,8 +35,8 @@ const bubblesort = {
         }
         sendButton('Enter first 🍏 number', buttons);
     }
-    
-    
+
+
     // User inputs second number
     if (payload===num1+'~N~N'){
         let buttons = []
@@ -49,7 +48,7 @@ const bubblesort = {
         }
         sendButton('Enter Second 🍊 Number', buttons);    
     }
-    
+
     // User inputs third number
     if (payload===num1+'~'+num2+'~N'){
         let buttons = []
@@ -61,8 +60,8 @@ const bubblesort = {
         }
         sendButton('Enter third 🥝 number ', buttons);    
     }
-    
-    
+
+
     if(payload===num1+'~'+num2+'~'+num3){
         let output_array=bubblesort(input_array);
         let result = output_array[0]+', '+output_array[1]+', '+output_array[2]
@@ -74,8 +73,8 @@ const bubblesort = {
     }
     return;
 };
-    `,
-    "other": `function bubblesort(arr){
+
+function bubblesort(arr){
     var sorted = false;
     while (sorted === false){
         sorted = true;
@@ -89,7 +88,7 @@ const bubblesort = {
         
     }
     return arr; 
-}
+};
     `
 }
 
