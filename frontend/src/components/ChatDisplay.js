@@ -3,19 +3,19 @@ import ChatButton from './ChatButton'
 import './ChatDisplay.css'
 import MessageBubble from './MessageBubble'
 
+
 function ChatDisplay(props) {
 
     const [messages, setMessages] = useState([])
     const chatDisplayRef = useRef()
 
     function runGameStart() {
-        let start = eval(props.program.other + ";" + props.program.start)
-        start(say, sendButton)
+        console.log("hi")
+        eval(props.program.code + "; start(say, sendButton)")
     }
 
-    function runGameState(innerpayload) {
-        let state = eval(props.program.other + ";" + props.program.state)
-        state(innerpayload, say, sendButton)
+    function runGameState(innerPayload) {
+        eval(props.program.code + "; state(innerPayload, say, sendButton)")
     }
 
     function displayMessage(message, sender) {

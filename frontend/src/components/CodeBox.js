@@ -1,14 +1,18 @@
 import './CodeBox.css'
 import IconButton from './IconButton'
-import CodeBoxChunk from './CodeBoxChunk'
+
+import 'codemirror/lib/codemirror.css'
+import 'codemirror/theme/material.css'
+import 'codemirror/mode/javascript/javascript'
+import CodeMirror from '@uiw/react-codemirror'
+import { javascript } from "@codemirror/lang-javascript";
+import { oneDark } from '@codemirror/theme-one-dark';
 
 function CodeBox(props) {
 
-    function updateProgram(code, area) {
-        if (!(area == "start" || area == "state" || area == "other")) return
-
+    function updateProgram(code) {
         let newProgram = {...props.program}
-        newProgram[area] = code
+        newProgram["code"] = code
         props.setProgram(newProgram)
     }
 
@@ -24,24 +28,19 @@ function CodeBox(props) {
                     function={props.closeCodeBox}
                 ></IconButton>
             </div>
-            <CodeBoxChunk
-                className="code-box-chunk"
-                title="start"
-                code={props.program.start}
-                updateCode={(code) => updateProgram(code, "start")}
-            ></CodeBoxChunk>
-            <CodeBoxChunk
-                className="code-box-chunk"
-                title="state"
-                code={props.program.state}
-                updateCode={(code) => updateProgram(code, "state")}
-            ></CodeBoxChunk>
-            <CodeBoxChunk
-                className="code-box-chunk"
-                title="other"
-                code={props.program.other}
-                updateCode={(code) => updateProgram(code, "other")}
-            ></CodeBoxChunk>
+            <div className="code-box-chunk">
+            <CodeMirror
+                value={props.program["code"]}
+                height="calc(100vh - 80px)"
+                width="min(800px, 50vw)"
+                extensions={[javascript({ jsx: true })]}   
+                onChange={(value, viewUpdate) => {
+                    updateProgram(value)
+                }}
+                theme={oneDark}
+                className="code-mirror"
+            />
+            </div>
         </div>
     )
 }
